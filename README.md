@@ -2,8 +2,6 @@
 
 这是一个使用Vue制作的动画索引（Anime Index）网站。    
 
-[Live Demo](https://nekolr.com/anime/)
-
 ## Build Setup
 
 ``` bash
