@@ -39,7 +39,8 @@ export default {
       params: {
         "page[offset]": 0,
         "page[limit]": 20,
-        "sort": "-userCount"
+        "sort": "-userCount",
+        "fields[anime]": "titles,posterImage"
       },
       globalLoading: false
     };

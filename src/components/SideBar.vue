@@ -80,7 +80,8 @@ export default {
   data() {
     return {
       params: {
-        "sort": "-userCount"
+        "sort": "-userCount",
+        "fields[anime]": "titles,posterImage",
       }
     }
   },
