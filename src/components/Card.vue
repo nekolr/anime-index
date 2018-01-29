@@ -5,7 +5,7 @@
             <div class="grid-poster ivu-card-body">
                 <div>
                 <div class="lazy-image is-loaded">
-                    <img v-lazy="anime.attributes.posterImage ? anime.attributes.posterImage.small : '/static/error.jpg' ">
+                    <img v-lazy="anime.attributes.posterImage.small ? anime.attributes.posterImage.small : '/static/error.jpg' ">
                 </div>
                 <div class="ellipsis">
                     <span class="media-title">{{ anime.attributes.titles.ja_jp }}</span>

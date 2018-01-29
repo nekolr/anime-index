@@ -19,6 +19,7 @@ Vue.component('Tooltip', Tooltip)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   loading: '/static/Ellipsis.gif',
+  error: '/static/error.jpg',
   attempt: 1
 })
 Vue.prototype.$http = axios
