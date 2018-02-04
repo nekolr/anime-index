@@ -20,8 +20,8 @@ Vue.component('TabPane', TabPane)
 Vue.component('Tabs', Tabs)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  loading: 'static/Ellipsis.gif',
-  error: 'static/error.jpg',
+  loading: '/static/Ellipsis.gif',
+  error: '/static/error.jpg',
   attempt: 1
 })
 Vue.prototype.$http = axios

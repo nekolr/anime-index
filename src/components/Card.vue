@@ -34,7 +34,7 @@ export default {
   computed: {
     posterImage() {
       return (this.anime.attributes.posterImage && this.anime.attributes.posterImage.small) ?  
-      this.anime.attributes.posterImage.small : 'static/error.jpg'
+      this.anime.attributes.posterImage.small : '/static/error.jpg'
     }
   }
 };
