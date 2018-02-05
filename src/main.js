@@ -20,7 +20,7 @@ Vue.component('TabPane', TabPane)
 Vue.component('Tabs', Tabs)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  loading: '/static/Ellipsis.gif',
+  loading: '/static/Heart.gif',
   error: '/static/error.jpg',
   attempt: 1
 })
