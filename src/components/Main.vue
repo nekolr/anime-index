@@ -52,12 +52,16 @@ export default {
       if (viewH + scrollH + 100 >= sumH) {
         if(!this.globalLoading) {
           let _context = this
+
+          // 全局设置正在加载数据，防止滚动后多次加载
+          _context.globalLoading = true
+
           // scorll 会导致窗口抖动，使用 setTimeout 防抖
           // details: <https://www.cnblogs.com/coco1s/p/5499469.html>
           setTimeout(function() {
             _context.params['page[offset]'] += 20
             _context.getAnimes(_context.params)
-          }, 200)
+          }, 100)
         }
       }
     },
@@ -77,8 +81,6 @@ export default {
     },
     getAnimes(params, flag) {
       this.params = params
-      // 全局设置正在加载数据，防止滚动后多次加载
-      this.globalLoading = true
       this.$http({
         url: url,
         method: "get",
