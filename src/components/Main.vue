@@ -45,14 +45,19 @@ export default {
     Card
   },
   methods: {
-    scorll() {
+    scroll() {
       const sumH = document.body.scrollHeight || document.documentElement.scrollHeight;
       const viewH = document.documentElement.clientHeight;
       const scrollH = document.body.scrollTop || document.documentElement.scrollTop;
-      if (viewH + scrollH + 300 >= sumH) {
+      if (viewH + scrollH + 100 >= sumH) {
         if(!this.globalLoading) {
-          this.params['page[offset]'] += 20
-          this.getAnimes(this.params);
+          let _context = this
+          // scorll 会导致窗口抖动，使用 setTimeout 防抖
+          // details: <https://www.cnblogs.com/coco1s/p/5499469.html>
+          setTimeout(function() {
+            _context.params['page[offset]'] += 20
+            _context.getAnimes(_context.params)
+          }, 200)
         }
       }
     },
@@ -93,7 +98,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.scorll);
+    window.addEventListener("scroll", this.scroll);
   },
   created() {
     this.initialized();
