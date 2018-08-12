@@ -63,7 +63,7 @@ export default {
         method: "get",
         params: this.params,
       }).then(response => {
-          this.animes = this.animes.concat(response.data.data);
+          this.animes = response.data.data;
           this.loading = false
       }).catch(response => {
         console.log("error : ", response);
@@ -79,13 +79,13 @@ export default {
         method: "get",
         params: this.params,
       }).then(response => {
-        this.globalLoading = false
         if(!flag) {
-          this.animes = this.animes.concat(response.data.data);
+          this.animes.push.apply(this.animes, response.data.data)
         } else {
           scrollTo(0,0)
           this.animes = response.data.data
         }
+        this.globalLoading = false
       }).catch(response => {
         this.globalLoading = false
         console.log("error : ", response);
