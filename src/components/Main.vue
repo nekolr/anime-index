@@ -46,23 +46,26 @@ export default {
   },
   methods: {
     scroll() {
-      const sumH = document.body.scrollHeight || document.documentElement.scrollHeight;
-      const viewH = document.documentElement.clientHeight;
-      const scrollH = document.body.scrollTop || document.documentElement.scrollTop;
-      if (viewH + scrollH + 100 >= sumH) {
-        if(!this.globalLoading) {
-          let _context = this
+      // fixed 只有在 Root 中才会触发加载更多
+      if(this.$route.name === 'Root') {
+          const sumH = document.body.scrollHeight || document.documentElement.scrollHeight;
+          const viewH = document.documentElement.clientHeight;
+          const scrollH = document.body.scrollTop || document.documentElement.scrollTop;
+          if (viewH + scrollH + 100 >= sumH) {
+              if(!this.globalLoading) {
+                  let _context = this
 
-          // 全局设置正在加载数据，防止滚动后多次加载
-          _context.globalLoading = true
+                  // 全局设置正在加载数据，防止滚动后多次加载
+                  _context.globalLoading = true
 
-          // scorll 会导致窗口抖动，使用 setTimeout 防抖
-          // details: <https://www.cnblogs.com/coco1s/p/5499469.html>
-          setTimeout(function() {
-            _context.params['page[offset]'] += 20
-            _context.getAnimes(_context.params)
-          }, 100)
-        }
+                  // scroll 会导致窗口抖动，使用 setTimeout 防抖
+                  // details: <https://www.cnblogs.com/coco1s/p/5499469.html>
+                  setTimeout(function() {
+                      _context.params['page[offset]'] += 20
+                      _context.getAnimes(_context.params)
+                  }, 100)
+              }
+          }
       }
     },
     initialized() {
