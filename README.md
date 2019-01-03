@@ -1,5 +1,5 @@
 
-这是一个使用Vue制作的动画索引（Anime Index）网站（练手作）。    
+这是一个使用 Vue 制作的动画索引（Anime Index）网站（练手作）。    
 
 ## Build Setup
 

@@ -24,7 +24,8 @@
         </div>
         <div class="right tab_year">
           <a href="javascript:;" @click="filter($event, 'year')" data-value="all" class="tab-i ckc on">全部</a>
-          <a v-for="idx of 50" :key="idx" href="javascript:;" @click="filter($event, 'year')" class="tab-i ckc" :data-value="(2019 - idx) + '..' + (2019 - idx)">{{2019 - idx}}</a>
+          <a v-for="idx of 50" :key="idx" href="javascript:;" @click="filter($event, 'year')" class="tab-i ckc" 
+          :data-value="(currentYear - idx + 1) + '..' + (currentYear - idx + 1)">{{currentYear - idx + 1}}</a>
         </div>
       </div>
 
@@ -82,7 +83,8 @@ export default {
       params: {
         "sort": "-userCount",
         "fields[anime]": "titles,posterImage",
-      }
+      },
+      currentYear: new Date().getFullYear()
     }
   },
   methods: {
@@ -90,15 +92,15 @@ export default {
       let ele = event.currentTarget
       let list = ele.parentNode.children
       let value = ele.dataset.value
-      for(let i = 0; i < list.length; i ++) {
-        if(list[i].dataset.value === value) {
+      for (let i = 0; i < list.length; i ++) {
+        if (list[i].dataset.value === value) {
           ele.classList.add("on")
         } else {
           list[i].classList.remove("on")
         }
       }
 
-      if(value === 'all') 
+      if (value === 'all') 
        delete this.params['filter[' + type + ']']
       else 
        this.params['filter[' + type + ']'] = value
