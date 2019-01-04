@@ -1,5 +1,11 @@
 const path = require('path')
 const CompressionPlugin = require("compression-webpack-plugin")
+const VueSSRServerPlugin = require("vue-server-renderer/server-plugin")
+const VueSSRClientPlugin = require("vue-server-renderer/client-plugin")
+const nodeExternals = require("webpack-node-externals")
+const merge = require("lodash.merge")
+const TARGET_NODE = process.env.WEBPACK_TARGET === "node"
+const target = TARGET_NODE ? "server" : "client"
 
 function resolve(dir) {
     return path.join(__dirname, '.', dir)
@@ -22,7 +28,9 @@ module.exports = {
             .use('vue-loader')
             .loader('vue-loader')
             .tap(options => {
-                return options
+                merge(options, {
+                    optimizeSSR: false
+                });
             })
 
         config.resolve
@@ -31,7 +39,34 @@ module.exports = {
             .set('@', resolve("src"))
     },
 
-    configureWebpack:  {
+    configureWebpack: () => ({
+        // 将 entry 指向应用程序的 server/client 文件
+        // 需要注意的是，这里使用的不是单引号，而是 ``
+        entry: `./ssr/entry-${target}.js`,
+        target: TARGET_NODE ? "node" : "web",
+        node: TARGET_NODE ? undefined : false,
+        output: {
+            libraryTarget: TARGET_NODE ? "commonjs2" : undefined
+        },
+        // https://webpack.js.org/configuration/externals/#function
+        // https://github.com/liady/webpack-node-externals
+        // 外置化应用程序依赖模块。可以使服务器构建速度更快，
+        // 并生成较小的 bundle 文件。
+        externals: nodeExternals({
+            // 不要外置化 webpack 需要处理的依赖模块。
+            // 你可以在这里添加更多的文件类型。例如，未处理 *.vue 原始文件，
+            // 你还应该将修改 `global`（例如 polyfill）的依赖模块列入白名单
+            whitelist: [/\.css$/]
+        }),
+        optimization: {
+            splitChunks: {
+                chunks: "async",
+                minSize: 30000,
+                minChunks: 2,
+                maxAsyncRequests: 5,
+                maxInitialRequests: 3
+            }
+        },
         plugins: [
             new CompressionPlugin({
                 asset: '[path].gz[query]',
@@ -39,9 +74,11 @@ module.exports = {
                 test: new RegExp('\\.(js|css)$'),
                 threshold: 10240,
                 minRatio: 0.8
-            })
+            }),
+            // SSR Plugin
+            TARGET_NODE ? new VueSSRServerPlugin() : new VueSSRClientPlugin()
         ]
-    },
+    }),
 
     // 是否为生产环境构建生成 source map
     productionSourceMap: false,

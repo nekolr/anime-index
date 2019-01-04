@@ -6,7 +6,7 @@ import Anime from '@/components/Anime'
 Vue.use(Router)
 
 export default new Router({
-  // 去#号，需服务端支持
+  // 去 # 号，需服务端支持
   mode: 'history',
   routes: [
     {

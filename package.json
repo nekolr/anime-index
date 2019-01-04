@@ -5,25 +5,36 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
+    "build:all": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json"
   },
   "dependencies": {
-    "vue": "^2.5.17",
-    "animate.css": "^3.5.2",
+    "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "iscroll": "^5.2.0",
-    "iview": "^3.0.0",
+    "iview": "^3.2.1",
+    "koa": "^2.6.2",
+    "koa-static": "^5.0.0",
+    "koa-favicon": "^2.0.1",
+    "vue": "^2.5.21",
     "vue-iscroll-view": "^1.0.3",
-    "vue-lazyload": "^1.1.4",
-    "vue-router": "^3.0.1",
-    "vue-virtual-scroller": "^0.12.0"
+    "vue-lazyload": "^1.2.6",
+    "vue-router": "^3.0.2",
+    "vue-virtual-scroller": "^0.12.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0",
-    "@vue/cli-plugin-eslint": "^3.0.0",
-    "@vue/cli-service": "^3.0.0",
-    "vue-template-compiler": "^2.5.17",
-    "compression-webpack-plugin": "^1.1.10"
+    "@vue/cli-plugin-babel": "^3.2.2",
+    "@vue/cli-plugin-eslint": "^3.2.2",
+    "@vue/cli-service": "^3.2.3",
+    "vue-template-compiler": "^2.5.21",
+    "webpack-node-externals": "^1.7.2",
+    "compression-webpack-plugin": "^1.1.12",
+    "lodash.merge": "^4.6.1",
+    "vue-server-renderer": "^2.5.21",
+    "dotenv": "^6.2.0",
+    "cross-env": "^5.2.0"
   },
   "eslintConfig": {
     "root": true,
