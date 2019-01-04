@@ -1,5 +1,5 @@
 <template>
-  <div class="container global-container">
+  <div id="app" class="container global-container">
     <div class="row">
       <keep-alive include="Main">
         <router-view name="main"></router-view>

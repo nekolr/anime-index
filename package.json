@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "server": "cross-env node server-entry.js",
     "build:client": "vue-cli-service build",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
     "build:all": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json"
@@ -31,33 +32,13 @@
     "vue-template-compiler": "^2.5.21",
     "webpack-node-externals": "^1.7.2",
     "compression-webpack-plugin": "^1.1.12",
+    "babel-core": "^6.26.3",
+    "babel-register": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-loader": "^8.0.5",
     "lodash.merge": "^4.6.1",
     "vue-server-renderer": "^2.5.21",
     "dotenv": "^6.2.0",
     "cross-env": "^5.2.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  }
 }

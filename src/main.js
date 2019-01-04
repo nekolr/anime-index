@@ -1,12 +1,17 @@
 import '@/assets/index.css';
 import 'animate.css/animate.min.css';
 import axios from 'axios';
-import { BackTop, Spin, TabPane, Tabs } from 'iview';
 import 'iview/dist/styles/iview.css';
 import Vue from 'vue';
 import VueLazyload from 'vue-lazyload';
+import {
+  BackTop,
+  Spin,
+  Tabs,
+  TabPane
+} from 'iview';
 import App from './App';
-import router from './router';
+import { createRouter } from './router';
 
 Vue.config.productionTip = false
 
@@ -24,15 +29,13 @@ Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 
-const app = new Vue({
-  el: '#app',
-  router,
-  components: {
-    App
-  },
-  template: '<App/>'
-})
-
 export function createApp() {
+  const router = createRouter()
+  
+  const app = new Vue({
+    router,
+    render: h => h(App)
+  })
+
   return { app, router }
 }
