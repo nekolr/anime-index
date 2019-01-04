@@ -23,4 +23,7 @@ npm run build:server
 
 # build ssr all
 npm run build:all
+
+# koa server
+npm run server
 ```
