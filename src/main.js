@@ -23,7 +23,7 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   loading: '/static/Heart.gif',
   error: '/static/error.jpg',
-  attempt: 1
+  attempt: 2
 })
 Vue.prototype.$http = axios
 
@@ -31,7 +31,7 @@ Vue.prototype.$http = axios
 
 export function createApp() {
   const router = createRouter()
-  
+
   const app = new Vue({
     router,
     render: h => h(App)
