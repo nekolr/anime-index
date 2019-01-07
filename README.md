@@ -17,15 +17,21 @@ npm run build
 SSR version is [here](https://github.com/nekolr/anime-index/tree/ssr).  
 
 ```bash
+# cd ssr branch
+git checkout ssr
+
 # build ssr client entry
 npm run build:client
 
 # build ssr server entry
 npm run build:server
 
-# build ssr all
-npm run build:all
+# build ssr under windows
+npm run build:windows
 
-# koa server
+# build ssr under linux
+npm run build:linux
+
+# run koa server
 npm run server
 ```
