@@ -9,7 +9,8 @@
     "server": "cross-env node server-entry.js",
     "build:client": "vue-cli-service build",
     "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
-    "build:all": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json"
+    "build:windows": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json",
+    "build:linux": "npm run build:server && mv dist\/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist\/vue-ssr-server-bundle.json"
   },
   "dependencies": {
     "animate.css": "^3.7.0",

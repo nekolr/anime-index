@@ -23,9 +23,12 @@ npm run build:client
 # build ssr server entry
 npm run build:server
 
-# build ssr all
-npm run build:all
+# build ssr under windows
+npm run build:windows
 
-# koa server
+# build ssr under linux
+npm run build:linux
+
+# run koa server
 npm run server
 ```
