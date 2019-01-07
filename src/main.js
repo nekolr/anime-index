@@ -1,9 +1,9 @@
-import '@/assets/index.css';
-import 'animate.css/animate.min.css';
 import axios from 'axios';
-import 'iview/dist/styles/iview.css';
 import Vue from 'vue';
 import VueLazyload from 'vue-lazyload';
+import 'iview/dist/styles/iview.css'
+import '@/assets/index.css'
+import 'animate.css/animate.min.css'
 import {
   BackTop,
   Spin,
