@@ -29,17 +29,17 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.2",
     "@vue/cli-plugin-eslint": "^3.2.2",
-    "@vue/cli-service": "^3.2.3",
-    "vue-template-compiler": "^2.5.21",
-    "webpack-node-externals": "^1.7.2",
-    "compression-webpack-plugin": "^1.1.12",
+    "@vue/cli-service": "^3.6.0",
     "babel-core": "^6.26.3",
-    "babel-register": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "compression-webpack-plugin": "^1.1.12",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
     "lodash.merge": "^4.6.1",
     "vue-server-renderer": "^2.5.21",
-    "dotenv": "^6.2.0",
-    "cross-env": "^5.2.0"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-node-externals": "^1.7.2"
   }
 }
