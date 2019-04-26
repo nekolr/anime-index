@@ -9,6 +9,6 @@ COPY . .
 RUN npm install --registry=https://registry.npm.taobao.org \
     && npm run build
 
-EXPOSE 12345
+EXPOSE 8080
 
 CMD ["npm", "run", "serve"]
