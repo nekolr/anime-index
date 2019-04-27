@@ -20,7 +20,7 @@
     "koa": "^2.6.2",
     "koa-static": "^5.0.0",
     "koa-favicon": "^2.0.1",
-    "vue": "^2.5.21",
+    "vue": "^2.6.10",
     "vue-iscroll-view": "^1.0.3",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.2",
@@ -38,8 +38,8 @@
     "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
     "lodash.merge": "^4.6.1",
-    "vue-server-renderer": "^2.5.21",
-    "vue-template-compiler": "^2.5.21",
+    "vue-server-renderer": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
     "webpack-node-externals": "^1.7.2"
   }
 }
