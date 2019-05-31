@@ -10,7 +10,7 @@
   "dependencies": {
     "vue": "^2.6.10",
     "animate.css": "^3.5.2",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "iscroll": "^5.2.0",
     "iview": "^3.0.0",
     "vue-iscroll-view": "^1.0.3",
