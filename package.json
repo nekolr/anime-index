@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "iscroll": "^5.2.0",
     "iview": "^3.2.1",
     "koa": "^2.6.2",
