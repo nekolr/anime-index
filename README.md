@@ -1,7 +1,7 @@
 
 这是一个使用 Vue 制作的动画索引（Anime Index）网站（练手作）。  
 
-## SPA
+## CSR
 
 ``` bash
 # install dependencies
