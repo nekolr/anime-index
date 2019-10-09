@@ -13,7 +13,7 @@
     "build:linux": "npm run build:server && mv dist\/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist\/vue-ssr-server-bundle.json && rm -f dist\/index.html"
   },
   "dependencies": {
-    "animate.css": "^3.7.0",
+    "animate.css": "^3.7.2",
     "axios": "^0.19.0",
     "iscroll": "^5.2.0",
     "iview": "^3.2.1",
