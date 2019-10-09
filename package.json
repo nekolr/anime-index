@@ -22,7 +22,7 @@
     "@vue/cli-plugin-babel": "^3.2.2",
     "@vue/cli-plugin-eslint": "^3.2.2",
     "@vue/cli-service": "^3.6.0",
-    "compression-webpack-plugin": "^1.1.12",
+    "compression-webpack-plugin": "^3.0.0",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
